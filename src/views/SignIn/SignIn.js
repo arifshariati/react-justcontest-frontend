@@ -14,8 +14,8 @@ import { connect } from "react-redux";
 import { signIn, signInWithSocialMedia } from "../../redux/actions/userActions";
 
 firebase.initializeApp({
-  apiKey: "AIzaSyAJ2_INHdaO7t-Tc-dMIy4jwPjnMKs8itc",
-  authDomain: "voting-functions.firebaseapp.com",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
 });
 
 const styles = (theme) => ({
@@ -152,36 +152,9 @@ class SignIn extends Component {
           .catch((err) => {
             console.log(err);
           });
-        //this.props.signInWithSocialMedia(firebase.auth().currentUser.getIdToken(),this.props.history)
-        //console.log(firebase.auth().currentUser.getIdTokenResult());
       },
-      //signInSuccess: () => false
     },
   };
-
-  /* componentWillReceiveProps(nextProps) {
-    if (nextProps.UI.errors) {
-      this.setState({
-        errors: nextProps.UI.errors,
-      });
-    }
-  }
-  handleSubmit = (event) => {
-    event.preventDefault();
-
-    const userData = {
-      email: this.state.email,
-      password: this.state.password,
-    };
-
-    this.props.signIn(userData, this.props.history);
-  };
-
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  }; */
 
   render() {
     const { classes } = this.props;
@@ -200,106 +173,6 @@ class SignIn extends Component {
                     firebaseAuth={firebase.auth()}
                   />
                 )}
-
-                {/* <form className={classes.form} onSubmit={this.handleSubmit}>
-                  <Typography className={classes.title} variant="h2">
-                    Sign in
-                  </Typography>
-                  <Typography color="textPrimary" gutterBottom>
-                    Sign in with social media
-                  </Typography>
-                  <Grid className={classes.socialButtons} container spacing={2}>
-                    <Grid item>
-                      <Button
-                        color="primary"
-                        onClick={this.handleSubmit}
-                        size="large"
-                        variant="contained"
-                      >
-                        <FacebookIcon className={classes.socialIcon} />
-                        Login with Facebook
-                      </Button>
-                    </Grid>
-                    <Grid item>
-                      <Button
-                        onClick={this.handleSubmit}
-                        size="large"
-                        variant="contained"
-                      >
-                        <GoogleIcon className={classes.socialIcon} />
-                        Login with Google
-                      </Button>
-                    </Grid>
-                  </Grid>
-                  <Typography
-                    align="center"
-                    className={classes.sugestion}
-                    color="textSecondary"
-                    variant="body1"
-                  >
-                    or login with email address
-                  </Typography>
-                  <TextField
-                    className={classes.textField}
-                    fullWidth
-                    helperText={errors.email}
-                    error={errors.email ? true : false}
-                    label="Email address"
-                    name="email"
-                    onChange={this.handleChange}
-                    type="text"
-                    value={this.state.email}
-                    variant="outlined"
-                  />
-                  <TextField
-                    className={classes.textField}
-                    fullWidth
-                    helperText={errors.password}
-                    error={errors.password ? true : false}
-                    label="Password"
-                    name="password"
-                    onChange={this.handleChange}
-                    type="password"
-                    value={this.state.password}
-                    variant="outlined"
-                  />
-                  <Button
-                    className={classes.signInButton}
-                    color="primary"
-                    //disabled={!formState.isValid}
-                    fullWidth
-                    size="large"
-                    type="submit"
-                    variant="contained"
-                  >
-                    Sign in now
-                  </Button>
-
-                  <Typography color="textSecondary" variant="body1">
-                    Forgot Your Password?{" "}
-                    <Link
-                      component={RouterLink}
-                      to="/resetPassword"
-                      variant="h6"
-                    >
-                      Reset Password
-                    </Link>
-                  </Typography>
-
-                  <Typography color="textSecondary" variant="body1">
-                    Don't have an account?{" "}
-                    <Link component={RouterLink} to="/sign-up" variant="h6">
-                      Sign up
-                    </Link>
-                  </Typography>
-
-                  {errors.general && (
-                    <Alert severity="error">
-                      <AlertTitle>Error - Wrong Credentials</AlertTitle>
-                      {errors.general} — <strong>Try Again</strong>
-                    </Alert>
-                  )}
-                </form> */}
               </div>
             </div>
           </Grid>

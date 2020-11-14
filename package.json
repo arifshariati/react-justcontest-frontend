@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.20.0",
     "chart.js": "^2.9.3",
+    "dotenv": "^8.2.0",
     "firebase": "^7.23.0",
     "gulp-sass": "^3.0.1",
     "jwt-decode": "^3.0.0-beta.2",

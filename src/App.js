@@ -1,3 +1,4 @@
+//require("dotenv").config();
 import React, { Component } from "react";
 import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
@@ -29,22 +30,6 @@ Axios.defaults.baseURL =
 const token = localStorage.FBIdToken;
 
 if (token) {
-  //const decodedToken = jwtDecode(token);
-
-  /* if (decodedToken.exp * 1000 < Date.now()) {
-    store.dispatch(signOut());
-    window.location.href = "/contest";
-  } else {
-    store.dispatch({ type: SET_AUTHENTICATED });
-    store.dispatch({ type: SET_SIGNEDIN });
-
-    Axios.defaults.headers.common["Authorization"] = token;
-
-    store.dispatch(getUsertData());
-    store.dispatch(loadReduxDataFields());
-
-  } */
-
   store.dispatch({ type: SET_AUTHENTICATED });
   store.dispatch({ type: SET_SIGNEDIN });
 
